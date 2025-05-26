@@ -107,3 +107,19 @@ function atacar() {
   somAtaque.play();
   renderizarHumanos();
 }
+
+ // Humanos atacam gorila se não defendeu
+  if (!defendeu) {
+    const dano = Math.floor(Math.random() * 10) + 5;
+    vidaGorila -= dano;
+    adicionarLog(`Humanos contra-atacam e tiram ${dano} de vida do gorila!`);
+  } else {
+    adicionarLog('Gorila se defendeu e recebeu menos dano!');
+    const dano = Math.floor(Math.random() * 5) + 1;
+    vidaGorila -= dano;
+  }
+  if (vidaGorila < 0) vidaGorila = 0;
+  defendeu = false;
+  atualizarInterface();
+  salvarEstado();
+  verificarFimDeJogo();
