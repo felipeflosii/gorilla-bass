@@ -82,3 +82,28 @@ function renderizarHumanos() {
     }
   });
 }
+
+function atacar() {
+  if (humanos.filter(h => h).length === 0) {
+    adicionarLog('Todos os humanos já foram derrotados!');
+    return;
+  }
+  ataquesFeitos++;
+  // Gorila ataca, mata de 1 a 5 humanos aleatórios
+  let mortos = 0;
+  const vivos = humanos.filter(h => h).length;
+  const maxMortos = vivos < 5 ? vivos : 5;
+  const mortes = Math.floor(Math.random() * maxMortos) + 1;
+  for (let i = 0; i < mortes; i++) {
+    // Mata o primeiro humano vivo encontrado
+    const idx = humanos.findIndex(h => h === true);
+    if (idx !== -1) {
+      humanos[idx] = false;
+      mortos++;
+    }
+  }
+  adicionarLog(`Gorila atacou e matou ${mortos} humanos!`);
+  somAtaque.currentTime = 0;
+  somAtaque.play();
+  renderizarHumanos();
+}
