@@ -157,4 +157,14 @@ function verificarFimDeJogo() {
   }
 }
   
-  
+btnAtacar.addEventListener('click', atacar);
+btnDefender.addEventListener('click', defender);
+btnCurar.addEventListener('click', curar);
+btnReiniciar.addEventListener('click', reiniciarJogo);
+
+// Carrega o estado salvo ou inicia jogo
+window.onload = () => {
+  carregarEstado();
+  atualizarInterface();
+  renderizarHumanos();
+};
