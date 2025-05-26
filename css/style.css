@@ -93,3 +93,12 @@ h1 {
   gap: 6px;
   justify-content: center;
 }
+
+/* Mini humanos */
+.humano-pequeno {
+  width: 35px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
