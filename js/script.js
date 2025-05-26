@@ -145,5 +145,16 @@ function curar() {
   salvarEstado();
   atualizarInterface();
 }
+
+function verificarFimDeJogo() {
+  if (vidaGorila <= 0) {
+    adicionarLog('💀 O gorila morreu! Fim de jogo!');
+    somMorte.play();
+    habilitarBotoes(false);
+  } else if (humanos.filter(h => h).length === 0) {
+    adicionarLog('🎉 Gorila venceu! Todos os humanos foram derrotados!');
+    habilitarBotoes(false);
+  }
+}
   
   
