@@ -131,3 +131,19 @@ function atacar() {
   salvarEstado();
   atualizarInterface();
 }
+
+function curar() {
+  if (vidaGorila >= 100) {
+    adicionarLog('Gorila já está com vida máxima!');
+    return;
+  }
+  vidaGorila += 15;
+  if (vidaGorila > 100) vidaGorila = 100;
+  ataquesFeitos++;
+  adicionarLog('Gorila se curou 15 pontos de vida!');
+  defendeu = false;
+  salvarEstado();
+  atualizarInterface();
+}
+  
+  
