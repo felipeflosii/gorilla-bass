@@ -50,3 +50,35 @@ function reiniciarJogo() {
   salvarEstado();
   renderizarHumanos();
 }
+
+function habilitarBotoes(valor) {
+  btnAtacar.disabled = !valor;
+  btnDefender.disabled = !valor;
+  btnCurar.disabled = !valor;
+}
+
+function atualizarInterface() {
+  vidaGorilaSpan.textContent = vidaGorila;
+  humanosRestantesSpan.textContent = humanos.filter(h => h).length;
+  ataquesFeitosSpan.textContent = ataquesFeitos;
+}
+
+function adicionarLog(mensagem) {
+  const p = document.createElement('p');
+  p.textContent = mensagem;
+  logBatalha.appendChild(p);
+  logBatalha.scrollTop = logBatalha.scrollHeight;
+}
+
+function renderizarHumanos() {
+  grupoHumanos.innerHTML = '';
+  humanos.forEach((vivo, index) => {
+    if (vivo) {
+      const img = document.createElement('img');
+      img.src = 'assets/humano.png';
+      img.alt = 'Humano';
+      img.classList.add('humano-pequeno');
+      grupoHumanos.appendChild(img);
+    }
+  });
+}
