@@ -34,3 +34,32 @@ h1 {
   padding: 10px 20px;
   border-radius: 12px;
 }
+
+#botoes-controle {
+  width: 90vw;
+  max-width: 600px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 15px;
+}
+
+#botoes-controle button {
+  padding: 12px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a7c3b;
+  color: white;
+  cursor: pointer;
+  box-shadow: 1px 1px 5px #255215;
+  transition: background-color 0.3s ease;
+}
+
+#botoes-controle button:hover:not(:disabled) {
+  background-color: #6aa549;
+}
+
+#botoes-controle button:disabled {
+  background-color: #333;
+  cursor: not-allowed;
+}

@@ -16,3 +16,37 @@ let vidaGorila = 100;
 let humanos = [];
 let ataquesFeitos = 0;
 let defendeu = false;
+
+function salvarEstado() {
+  const estado = {
+    vidaGorila,
+    humanosVivos: humanos.length,
+    ataquesFeitos
+  };
+  localStorage.setItem('estadoBatalha', JSON.stringify(estado));
+}
+
+function carregarEstado() {
+  const estadoJSON = localStorage.getItem('estadoBatalha');
+  if (estadoJSON) {
+    const estado = JSON.parse(estadoJSON);
+    vidaGorila = estado.vidaGorila;
+    ataquesFeitos = estado.ataquesFeitos;
+    const humanosVivos = estado.humanosVivos;
+    humanos = new Array(humanosVivos).fill(true);
+  } else {
+    reiniciarJogo();
+  }
+}
+
+function reiniciarJogo() {
+  vidaGorila = 100;
+  ataquesFeitos = 0;
+  humanos = new Array(100).fill(true);
+  defendeu = false;
+  atualizarInterface();
+  logBatalha.innerHTML = '';
+  habilitarBotoes(true);
+  salvarEstado();
+  renderizarHumanos();
+}
