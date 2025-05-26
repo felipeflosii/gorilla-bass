@@ -78,3 +78,18 @@ h1 {
   filter: drop-shadow(0 0 8px #2a6a1f);
   transition: transform 0.3s ease;
 }
+
+/* Humanos lado direito */
+.grupo-humanos {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 40vw;
+  max-width: 350px;
+  max-height: 60vh;
+  overflow-y: auto;
+  gap: 6px;
+  justify-content: center;
+}
