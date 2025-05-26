@@ -63,3 +63,18 @@ h1 {
   background-color: #333;
   cursor: not-allowed;
 }
+
+
+/* Gorila grande no canto esquerdo */
+.img-gorila {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40vw;
+  max-width: 350px;
+  height: auto;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px #2a6a1f);
+  transition: transform 0.3s ease;
+}
