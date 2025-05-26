@@ -123,3 +123,11 @@ function atacar() {
   atualizarInterface();
   salvarEstado();
   verificarFimDeJogo();
+
+  function defender() {
+  defendeu = true;
+  ataquesFeitos++;
+  adicionarLog('Gorila está se defendendo!');
+  salvarEstado();
+  atualizarInterface();
+}
